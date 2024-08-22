@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'home/login.css' %}">
+
+
+
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Log Out</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+
+        <div class="login-form">
+			<form method="post">
+				{% csrf_token %}
+					<h1 style="color: white;line-height: 3rem;">Are you sure want to logout ?</h1>
+
+				<div class="group">
+					<button class="button" type="submit" style="cursor: pointer;">Logout</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

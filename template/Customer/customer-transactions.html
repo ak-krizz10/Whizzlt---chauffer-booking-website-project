@@ -1,0 +1,29 @@
+{% extends 'Customer/base.html' %}
+{% load static %}
+
+
+<style>
+    .driverdetail p{
+        color: black !important;
+    }
+</style>
+
+{% block content %}
+
+<div class="mycontainer">
+    {% for i in transactions %}
+    <div class="card" style="height: 280px !important;">
+            <div class="portada" style="background-color: white !important;">
+                <img src="{% static 'payment.png' %}" alt=""> 
+            </div>
+            <div class="driverdetail">
+                <p>Driver : <span style="color: black !important;">{{i.booking.driver}}</span></p>
+                <p>Transaction ID : <span style="color: black !important;">{{i.trans_id}}</span></p>
+                <p>Payment Amount : <span style="color: black !important;">Rs {{i.amount}}</span> </p>
+                <p>Date of Transaction : <span style="color: black !important;">{{i.created}}</span></p>
+                <p>Route : Trip from <span style="color: black !important;">{{i.booking.source}}</span> to <span style="color: black !important;">{{i.booking.destination}}</span></p>
+                <p>Scheduled Date : <span style="color: black !important;">{{i.booking.schedule}}</span></p>
+            </div>
+    </div>
+    {% endfor %}
+{% endblock %}

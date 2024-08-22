@@ -1,0 +1,33 @@
+{% extends 'Customer/base.html' %}
+<h1>Customer Homepage</h1>
+
+
+{% block content %}
+
+<div class="mycontainer">
+{% for i in drivers %}
+<div class="card">
+        <div class="portada">
+            <img src="{{i.picture}}" alt=""> 
+        </div>
+        <div class="driverdetail">
+            <h1>{{i.name}}</h1>
+            <p>Location : <span>{{i.place}}</span></p>
+            <p>Experience  : <span>{{i.exp}} years</span></p>
+            {% if i.availability == True %}
+                <button>AVAILABLE</button>
+            {% else %}
+                <button>UNAVAILABLE</button>
+            {% endif %} 
+        </div>
+        <div class="actions">
+            <a href="{% url 'customer-driverprofile' i.id %}"><div class="driveraction">Profile</div></a>
+            {% if i.availability == True %}
+            <a href="{% url 'customer-booking' i.id %}"><div class="driveraction">Book NOW</div></a>
+            {% endif %}  
+        </div>
+</div>
+{% endfor %}
+
+</div>
+{% endblock %}

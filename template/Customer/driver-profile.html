@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+	{% load static %}
+  {% include 'Customer/header.html' %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'profile/css/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'profile/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'profile/css/main.css' %}" rel="stylesheet">
+  </head>
+
+  <body id="top">
+    <div class="page-content">
+      <div>
+<div class="profile-page">
+  <div class="wrapper">
+    <div class="page-header page-header-small" filter-color="green">
+      <div class="page-header-image" data-parallax="true" style="background-image: url(https://source.unsplash.com/random)"></div>
+      <div class="container">
+        <div class="content-center">
+          <div class="cc-profile-image"><a href="#"><img src="/{{profile.picture}}" alt="Image"/></a></div>
+          <div class="h2 title">{{profile.name}}</div>
+          <p class="category text-white">Driver</p>
+            {% if profile.availability == True %}
+            <a class="btn btn-primary smooth-scroll mr-2" href="{% url 'customer-booking' profile.id %}" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Book Now</a>
+                <a class="btn btn-primary" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Available</a>
+            {% else %}
+                <a class="btn btn-primary" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Unavailable</a>
+            {% endif %}
+          
+        </div>
+      </div>
+      <div class="section">
+        <div class="container">
+          <div class="button-container">
+            <a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Facebook">
+                <i class="fa fa-facebook"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Twitter"><i class="fa fa-twitter"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Google+"><i class="fa fa-google-plus"></i></a><a class="btn btn-default btn-round btn-lg btn-icon" href="#" rel="tooltip" title="Follow me on Instagram"><i class="fa fa-instagram"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section" id="about">
+  <div class="container">
+    <div class="card" data-aos="fade-up" data-aos-offset="10">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="card-body">
+            <div class="h4 mt-0 title">About</div>
+            <p>{{profile.about}}</p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="card-body">
+            <div class="h4 mt-0 title">Basic Information</div>
+            <div class="row">
+              <div class="col-sm-4"><strong class="text-uppercase">DOB:</strong></div>
+              <div class="col-sm-8">{{profile.dob}}</div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-4"><strong class="text-uppercase">License:</strong></div>
+              <div class="col-sm-8">{{profile.license}}</div>
+            </div><div class="row mt-3">
+              <div class="col-sm-4"><strong class="text-uppercase">Experience:</strong></div>
+              <div class="col-sm-8">{{profile.exp}} &nbsp;years</div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
+              <div class="col-sm-8">{{profile.email}}</div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
+              <div class="col-sm-8">+91 {{profile.phone}}</div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-4"><strong class="text-uppercase">Location:</strong></div>
+              <div class="col-sm-8">{{profile.place}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <footer class="footer">
+      <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
+      <div class="h4 title text-center">{{profile.name}}</div>
+      <div class="text-center text-muted">
+        <p>&copy; Whizzlt. All rights reserved.<br></a></p>
+      </div>
+    </footer>
+
+
+    
+    <script src="{% static 'profile/js/jquery.3.2.1.min.js' %}"></script>
+    <script src="{% static 'profile/js/aos.js' %}"></script>
+    <script src="{% static 'profile/js/main.js' %}"></script>
+
+    
+  </body>
+</html>

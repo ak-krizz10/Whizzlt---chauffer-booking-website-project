@@ -1,0 +1,29 @@
+{% extends 'Customer/base.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+<div class="mycontainer">
+    <form method="post">
+    {% csrf_token %}
+    <div class="card">
+            <div class="portada">
+                <img src="/{{driver.picture}}" alt=""> 
+            </div>
+            <div class="driverdetail">
+                <h1>{{i.name}}</h1>
+                <p>Location : <span>{{driver.place}}</span></p>
+                <p>Experience  : <span>{{driver.exp}} years</span></p>
+                <label style="font-size: 20px;margin-top: 10px; ">From : {{form.source}} </label>
+                <label style="font-size: 20px;margin-top: 10px; ">To &nbsp;&nbsp;: &emsp;{{form.destination}} </label>
+                <label style="font-size: 15px;margin-top: 10px; ">Date &nbsp;: &emsp;{{form.schedule}} </label>
+            </div>
+            <div class="actions">
+                <button type="submit" class="driveraction">Confirm</button>
+            </div>
+    </div>
+    </form>
+</div>
+{% endblock %}

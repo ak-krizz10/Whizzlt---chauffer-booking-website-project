@@ -1,0 +1,31 @@
+{% extends 'Customer/base.html' %}
+<h1>schedules</h1>
+
+
+{% block content %}
+
+{{payments.booking}}
+
+<div class="mycontainer">
+    {% for i in bookings %}
+    <div class="card">
+            <div class="portada">
+                <img src="{{i.driver.picture}}" alt=""> 
+            </div>
+            <div class="driverdetail">
+                <h1>{{i.driver.name}}</h1>
+                <p>Route : <span>{{i.source}}</span> To <span>{{i.destination}}</span></p>
+                <p>Date  : <span>{{i.schedule}}</span></p>
+            </div>
+            <div class="actions">
+                <a href="{% url 'customer-driverprofile' i.driver.id %}"><div class="driveraction">Profile</div></a>
+
+                {% if i.id in payments %}
+                   <div class="driveraction" style="letter-spacing: 0px; cursor: default;">Payment Done</div>
+                {% else %}
+                    <a href="{% url 'customer-payment' i.id %}"><div class="driveraction">Pay Now</div></a>
+                {% endif %}
+            </div>
+    </div>
+    {% endfor %}
+{% endblock %}

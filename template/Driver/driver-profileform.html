@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="{% static 'base/css/main.css' %}" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-dark p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                <div class="card-heading">
+                    <h2 class="title">Complete Profile</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="form-row">
+                            <div class="name">Full name</div>
+                            <div class="value">
+                                {{form.name}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">DOB</div>
+                            <div class="value">
+                                {{form.dob}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Location</div>
+                            <div class="value">
+                                {{form.place}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">License</div>
+                            <div class="value">
+                                {{form.license}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Experience</div>
+                            <div class="value">
+                                {{form.exp}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Email address</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    {{form.email}}
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="form-row">
+                            <div class="name">Phone </div>
+                            <div class="value">
+                                <div class="input-group">
+                                    {{form.phone}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Availability</div>
+                            <div class="value">
+                                {{form.availability}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">About</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    {{form.about}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Profile Pic</div>
+                            <div class="value">
+                                <div class="input-group js-input-file">
+                                    {{form.picture}}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn--radius-2 btn--blue-2" type="submit">Confirm</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="{% static 'base/vendor/jquery.min.js' %}"></script>
+
+
+    <!-- Main JS-->
+    <script src="{% static 'base/js/global.js' %}"></script>
+
+</body>
+</html>

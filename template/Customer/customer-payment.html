@@ -1,0 +1,23 @@
+{% extends 'Customer/base.html' %}
+{% load static %}
+{% block content %}
+<div class="mycontainer">
+    <form method="post">
+    {% csrf_token %}
+        <div class="card">
+            <div class="portada">
+                <img src="{% static 'route.jpg' %}" alt=""> 
+            </div>
+            <div class="driverdetail">
+                <h1>{{booking.driver.name}}</h1>
+                <p>Route : <span>{{booking.source}}</span> To <span>{{booking.destination}}</span></p>
+                <p>Date  : <span>{{booking.schedule}}</span></p>
+                <label style="font-size: 24px;margin-top: 20px; margin-left: 10%;">Amount : {{form.amount}} </label>
+                <p style="font-size: 11px !important; color: red; font-weight: 300 !important; margin-left: 30%;">*minimum amount is Rs.200</p>
+            </div>
+            <div class="actions">
+                <button type="submit" class="driveraction">Confirm</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
